@@ -1,8 +1,8 @@
 # MaterialLibrary
 这是我的素材库，我计划把收集到的各种前端素材放在这里。
 
-[在线演示](https://jaceykan.github.io/MaterialLibrary)
-
+<!-- [在线演示](https://jaceykan.github.io/MaterialLibrary)
+ -->
 ### 目录
 1. 动态背景
 	* [用Canvas为网页添加动态背景]()
