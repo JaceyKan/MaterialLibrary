@@ -4,13 +4,13 @@
 <!-- [在线演示](https://jaceykan.github.io/MaterialLibrary)
  -->
 ### 目录
-1. 动态背景
-	* [用Canvas为网页添加动态背景]()
+* 背景
+	* [canvas制作波浪状动态背景](https://jaceykan.github.io/MaterialLibrary/Wave-likeDynamicBackground/Wave-likeDynamicBackground-html.html)
 
 
 ### 关于分享
-如果你有有趣的素材想要分享给我，真是荣幸万分。
-请联系我: [jacey_kan@sina.com](mailto:jacey_kan@sina.com)
+如果你有有趣的素材想要分享给我，真是开心之至。  
+请联系我吧: [jacey_kan@sina.com](mailto:jacey_kan@sina.com)
 
 ### 协议
 本素材库遵循MIT协议，你可以不用经过我的许可直接使用。
