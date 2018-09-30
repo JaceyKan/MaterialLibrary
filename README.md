@@ -5,7 +5,7 @@
  -->
 ### 目录
 * 背景
-	* [canvas制作波浪状动态背景](https://jaceykan.github.io/MaterialLibrary/Wave-likeDynamicBackground/Wave-likeDynamicBackground-html.html)
+	* canvas制作波浪状动态背景——[在线预览](https://jaceykan.github.io/MaterialLibrary/Wave-likeDynamicBackground/Wave-likeDynamicBackground-html.html)——[源码](https://github.com/JaceyKan/MaterialLibrary/tree/master/Wave-likeDynamicBackground)
 
 
 ### 关于分享
