@@ -5,7 +5,11 @@
  -->
 ### 目录
 * 背景
-	* canvas制作波浪状动态背景——[在线预览](https://jaceykan.github.io/MaterialLibrary/Wave-likeDynamicBackground/Wave-likeDynamicBackground-html.html)——[源码](https://github.com/JaceyKan/MaterialLibrary/tree/master/Wave-likeDynamicBackground)
+	* canvas制作波浪状动态背景——[在线预览](https://jaceykan.github.io/MaterialLibrary/Wave-likeDynamicBackground/Wave-likeDynamicBackground-html.html)——[源码](https://github.com/JaceyKan/MaterialLibrary/tree/master/Wave-likeDynamicBackground)   
+	![](https://raw.githubusercontent.com/cyclegtx/wave_background/gh-pages/images/1.gif)
+* 页面布局
+	* pagePiling.js插件——[在线预览](https://alvarotrigo.com/pagePiling/)——[源码](https://github.com/alvarotrigo/pagePiling.js)   
+	![](https://camo.githubusercontent.com/59a2a5c011cdad9f45883bb69db13b53350a950c/68747470733a2f2f7261772e6769746875622e636f6d2f616c7661726f747269676f2f7061676550696c696e672e6a732f6d61737465722f6578616d706c65732f696d67732f7061676550696c696e672d706c7567696e2e706e67)
 
 
 ### 关于分享
