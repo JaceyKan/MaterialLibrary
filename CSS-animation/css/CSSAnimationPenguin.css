@@ -1,0 +1,231 @@
+body {
+  background: #C6FAF1;
+  font-size: medium; }
+
+#penguin {
+  width: 400px;
+  height: 400px;
+  margin: auto; }
+  #penguin #penguinHead {
+    width: 45%;
+    height: 40%;
+    background: #000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: auto;
+    position: relative; }
+    #penguin #penguinHead .face {
+      width: 65%;
+      height: 75%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 15%;
+      z-index: 10; }
+    #penguin #penguinHead #leftFace {
+      left: 3%; }
+    #penguin #penguinHead #rightFace {
+      right: 3%; }
+    #penguin #penguinHead .eye {
+      width: 15%;
+      height: 15%;
+      background: #000;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      position: absolute;
+      top: 40%;
+      z-index: 11; }
+      #penguin #penguinHead .eye .eyeBall {
+        width: 120%;
+        height: 100%;
+        position: relative;
+        top: 30%;
+        left: -10%;
+        background: #fff;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%; }
+    #penguin #penguinHead #leftEye {
+      left: 25%; }
+    #penguin #penguinHead #rightEye {
+      right: 25%; }
+    #penguin #penguinHead #topBeak {
+      width: 20%;
+      height: 10%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: orange;
+      position: absolute;
+      z-index: 11;
+      bottom: 30%;
+      left: 0;
+      right: 0;
+      margin: auto; }
+    #penguin #penguinHead #bottomBeak {
+      width: 80%;
+      height: 70%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: orange;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 55%; }
+    #penguin #penguinHead .cheek {
+      width: 14%;
+      height: 8%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: pink;
+      position: absolute;
+      bottom: 28%;
+      z-index: 11; }
+    #penguin #penguinHead #leftCheek {
+      left: 15%; }
+    #penguin #penguinHead #rightCheek {
+      right: 15%; }
+  #penguin #penguinBody {
+    width: 53%;
+    height: 50%;
+    background: #000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+    top: -12%; }
+    #penguin #penguinBody #penguinBelly {
+      width: 90%;
+      height: 90%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      margin: auto;
+      position: relative;
+      top: 1%;
+      background-color: #fff; }
+    #penguin #penguinBody .hand {
+      width: 20%;
+      height: 55%;
+      background: #000;
+      position: absolute;
+      top: 0;
+      z-index: -11; }
+    #penguin #penguinBody #leftHand {
+      left: 0%;
+      top: -19%;
+      -webkit-border-radius: 70% 30% 90% 20%;
+      -moz-border-radius: 70% 30% 90% 20%;
+      border-radius: 70% 30% 90% 20%;
+      tranform: rotate(110deg);
+      -ms-transform: rotate(110deg);
+      -moz-transform: rotate(110deg);
+      -webkit-transform: rotate(110deg);
+      -o-transform: rotate(110deg);
+      animation: leftHandShake 2s infinite;
+      -webkit-animation: leftHandShake 2s infinite;
+      -o-animation: leftHandShake 2s infinite; }
+@keyframes leftHandShake {
+  0% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); }
+  20% {
+    tranform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    -o-transform: rotate(130deg); }
+  40% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); }
+  60% {
+    tranform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    -o-transform: rotate(130deg); }
+  80% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); } }
+@-webkit-keyframes leftHandShake {
+  0% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); }
+  20% {
+    tranform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    -o-transform: rotate(130deg); }
+  40% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); }
+  60% {
+    tranform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    -o-transform: rotate(130deg); }
+  80% {
+    tranform: rotate(110deg);
+    -ms-transform: rotate(110deg);
+    -moz-transform: rotate(110deg);
+    -webkit-transform: rotate(110deg);
+    -o-transform: rotate(110deg); } }
+    #penguin #penguinBody #rightHand {
+      right: -2%;
+      -webkit-border-radius: 30% 70% 20% 90%;
+      -moz-border-radius: 30% 70% 20% 90%;
+      border-radius: 30% 70% 20% 90%;
+      tranform: rotate(-40deg);
+      -ms-transform: rotate(-40deg);
+      -moz-transform: rotate(-40deg);
+      -webkit-transform: rotate(-40deg);
+      -o-transform: rotate(-40deg); }
+    #penguin #penguinBody .feet {
+      width: 20%;
+      height: 10%;
+      background: orange;
+      position: absolute;
+      bottom: -5%;
+      z-index: -11; }
+    #penguin #penguinBody #leftFeet {
+      -webkit-border-radius: 60% 20% 70% 30%;
+      -moz-border-radius: 60% 20% 70% 30%;
+      border-radius: 60% 20% 70% 30%;
+      left: 25%; }
+    #penguin #penguinBody #rightFeet {
+      -webkit-border-radius: 20% 60% 30% 70%;
+      -moz-border-radius: 20% 60% 30% 70%;
+      border-radius: 20% 60% 30% 70%;
+      right: 25%; }
+
+@media (min-width: 600px) {
+  #penguin {
+    width: 800px;
+    height: 800px; } }
+
+/*# sourceMappingURL=CSSAnimationPenguin.css.map */
