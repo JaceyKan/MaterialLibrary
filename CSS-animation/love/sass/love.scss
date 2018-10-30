@@ -1,0 +1,62 @@
+@charset "utf-8";
+$body-background-expand: #FEAFCE;
+$body-background-shrink: #fff;
+$love-background-expand: rgba(#FF4D8E, 0.5);
+$love-background-shrink: rgba(#FE0072, 1);
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transform-rotate($deg){
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: $body-background-expand;
+}
+
+#love {
+  width: 25%;
+  height: 0;
+  padding-top: 25%;  /*使高度随宽度等比变化*/
+  background: $love-background-expand;
+  @include transform-rotate(-45deg);
+
+  /*使动画位于屏幕中间*/
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#love:before, #love:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  //border: 1px solid #000;
+  position: absolute;
+  @include border-radius(50%);
+  background: $love-background-expand;
+}
+
+#love:before {
+  top: -50%;
+}
+#love:after {
+  top: 0;
+  left: 50%;
+}

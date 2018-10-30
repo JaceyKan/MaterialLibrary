@@ -1,4 +1,5 @@
 # 使用CSS画一只企鹅
+
 >2018-10-24  
 >技术栈HTML + SASS  
 >来源于freeCodeCamp中的一个[示例](https://learn.freecodecamp.org/responsive-web-design/basic-css/use-a-media-query-to-change-a-variable)
@@ -9,5 +10,6 @@
 
 >参考：https://www.w3schools.com/css/css3_animations.asp  
 
-
+CSS-animation-penguin——[在线预览](https://jaceykan.github.io/MaterialLibrary/CSS-animation/CSSAnimationPenguin.html)  
+![](CSSAnimationPenguin.gif)
 
