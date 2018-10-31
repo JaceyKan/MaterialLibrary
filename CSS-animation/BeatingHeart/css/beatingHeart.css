@@ -66,7 +66,7 @@ body {
     background: #FE0072; }
   50% {
     background: #FF4D8E; } }
-@-o-keyframes heartBeat {
+@-o-keyframes heartBeatBackground {
   0% {
     background: #FE0072; }
   50% {
@@ -152,4 +152,4 @@ body {
   50% {
     background-color: #FEAFCE; } }
 
-/*# sourceMappingURL=love.css.map */
+/*# sourceMappingURL=beatingHeart.css.map */
