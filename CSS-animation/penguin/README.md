@@ -10,6 +10,6 @@
 
 >参考：https://www.w3schools.com/css/css3_animations.asp  
 
-CSS-animation-penguin——[在线预览](https://jaceykan.github.io/MaterialLibrary/CSS-animation/CSSAnimationPenguin.html)  
+CSS-animation-penguin——[在线预览](https://jaceykan.github.io/MaterialLibrary/CSS-animation/penguin/CSSAnimationPenguin.html)  
 ![](CSSAnimationPenguin.gif)
 

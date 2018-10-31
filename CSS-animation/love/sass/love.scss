@@ -1,8 +1,8 @@
 @charset "utf-8";
-$body-background-expand: #FEAFCE;
-$body-background-shrink: #fff;
-$love-background-expand: rgba(#FF4D8E, 0.5);
-$love-background-shrink: rgba(#FE0072, 1);
+$body-background-expand: #fff;
+$body-background-shrink: #FEAFCE;
+$love-background-expand: #FE0072;
+$love-background-shrink: #FF4D8E;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -10,12 +10,18 @@ $love-background-shrink: rgba(#FE0072, 1);
   border-radius: $radius;
 }
 
-@mixin transform-rotate($deg){
-  -webkit-transform: rotate($deg);
-  -moz-transform: rotate($deg);
-  -o-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  transform: rotate($deg);
+@mixin transform ($rotate, $scale) {
+  -webkit-transform: $rotate $scale;
+  -moz-transform: $rotate $scale;
+  -ms-transform: $rotate $scale;
+  -o-transform: $rotate $scale;
+  transform: $rotate $scale;
+}
+
+@mixin animation($name, $duration, $count) {
+  -webkit-animation: $name $duration $count;
+  -o-animation: $name $duration $count;
+  animation: $name $duration $count;
 }
 
 html, body {
@@ -25,38 +31,106 @@ html, body {
 
 body {
   background: $body-background-expand;
+  @include animation(bodyBackground,2s,infinite);
 }
 
-#love {
+.love {
   width: 25%;
   height: 0;
   padding-top: 25%;  /*使高度随宽度等比变化*/
   background: $love-background-expand;
-  @include transform-rotate(-45deg);
+  @include transform(rotate(-45deg), scale(1));
 
-  /*使动画位于屏幕中间*/
+  /*使图像位于屏幕中间*/
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
+
+  @include animation(heartBeat,2s,infinite);
 }
 
-#love:before, #love:after {
+.love:before, .love:after {
   content: "";
   width: 100%;
   height: 100%;
-  //border: 1px solid #000;
   position: absolute;
   @include border-radius(50%);
   background: $love-background-expand;
+  @include animation(heartBeatBackground,2s,infinite);
 }
 
-#love:before {
+.love:before {
   top: -50%;
 }
-#love:after {
+.love:after {
   top: 0;
   left: 50%;
+}
+
+@mixin heartBeatBackground {
+  0% {
+    background: $love-background-expand;
+  }
+  50% {
+    background: $love-background-shrink;
+  }
+}
+@keyframes heartBeatBackground {
+  @include heartBeatBackground;
+}
+@-webkit-keyframes heartBeatBackground {
+  @include heartBeatBackground;
+}
+@-moz-keyframes heartBeatBackground {
+  @include heartBeatBackground;
+}
+@-o-keyframes heartBeatBackground {
+  @include heartBeatBackground;
+}
+
+@mixin heartBeat {
+  0% {
+    @include transform(rotate(-45deg),scale(1));
+    background: $love-background-expand;
+  }
+  50% {
+    @include transform(rotate(-45deg),scale(0.6));
+    background: $love-background-shrink;
+  }
+}
+@keyframes heartBeat {
+  @include heartBeat;
+}
+@-webkit-keyframes heartBeat {
+  @include heartBeat;
+}
+@-moz-keyframes heartBeat {
+  @include heartBeat;
+}
+@-o-keyframes heartBeat {
+  @include heartBeat;
+}
+
+@mixin bodyBackground {
+  0% {
+    background-color: $body-background-expand;
+  }
+  50% {
+    background-color: $body-background-shrink;
+  }
+}
+@keyframes bodyBackground {
+  @include bodyBackground;
+}
+@-webkit-keyframes bodyBackground {
+  @include bodyBackground;
+}
+@-moz-keyframes bodyBackground {
+  @include bodyBackground;
+}
+@-o-keyframes bodyBackground {
+  @include bodyBackground;
 }
