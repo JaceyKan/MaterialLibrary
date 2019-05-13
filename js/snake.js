@@ -2,6 +2,16 @@
 	var position = 'absolute';
 	var snake;
 	var snakeNodes = [];
+	// 把parent对象拷贝到child
+	function extend(parent, child) {
+		for(var key in parent) {
+			if(child[key]) {
+				continue;
+			}
+			child[key] = parent[key];
+		}
+	}
+
 	function Snake(options) {
 		options = options || {};
 		this.w = options.w || 20;
@@ -74,13 +84,13 @@
 			// 蛇身增加一节
 			var length = this.body.length;
 			var last = this.body[length - 1]
-			this.body[length] = {
-				x: last.x,
-				y: last.y,
-				color: last.color
-			};
+			var obj = {};
+			extend(last, obj);
+			this.body.push(obj);
+
 		}
 	}
+
 
 	// 删除蛇---snakeNodes
 	function removeSnake() {
