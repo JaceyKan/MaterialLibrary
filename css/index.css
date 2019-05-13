@@ -1,0 +1,11 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#view {
+	width: 800px;
+	height: 600px;
+	background: lightgray;
+	position: relative;
+	margin: 10px;
+}
