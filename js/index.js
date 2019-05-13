@@ -1,5 +1,5 @@
 // ---------------tools------------------
-;(function () {
+;(function (window, undefined) {
 	var Tools = {
 		getRandom: function (min, max) {
 			// 随机生成min~max之间的随机整数，包含min、max
@@ -8,10 +8,10 @@
 	}
 
 	window.Tools = Tools;
-})()
+})(window, undefined)
 
 // ---------------food------------------
-;(function () {
+;(function (window, undefined) {
 	var position = 'absolute';
 	var foodElements = [];	// 用于存储所有食物元素
 	// 食物构造函数
@@ -61,10 +61,10 @@
 
 	// 把Food构造函数暴露给外部
 	window.Food = Food;
-})()
+})(window, undefined)
 
 // --------------------snake------------------------
-;(function () {
+;(function (window, undefined) {
 	var position = 'absolute';
 	var snake;
 	var snakeNodes = [];
@@ -160,10 +160,10 @@
 	}
 	
 	window.Snake = Snake;
-})()
+})(window, undefined)
 
 // --------------------game------------------------
-;(function () {
+;(function (window, undefined) {
 	// 游戏的逻辑
 	function Game(map) {
 		this.map = map;
@@ -228,11 +228,11 @@
 	}
 
 	window.Game = Game;
-})()
+})(window, undefined)
 
 // --------------------调用------------------------
-;(function () {
+;(function (window, undefined) {
 	var map = document.getElementById('view');
 	var game = new Game(map);
 	game.start();
-})()
+})(window, undefined)
