@@ -36,7 +36,7 @@
 	}
 
 	// 让蛇动一步
-	Snake.prototype.move = function (food) {
+	Snake.prototype.move = function (food, map) {
 		// 蛇的身体移动一步
 		// 每个蛇节移动到的位置是上一个蛇节的位置
 		for (var i = this.body.length - 1; i > 0; i--) {

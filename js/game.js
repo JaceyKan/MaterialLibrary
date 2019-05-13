@@ -44,10 +44,7 @@
 	// 让蛇跑起来
 	Game.prototype.runningSnake = function (snake, map, food) {
 		var snakeRunTimeId = setInterval(function () {
-			// 记录最后一节蛇身的位置后移动蛇
-			// var lastBodyX = snake.body[snake.body.length - 1].x;
-			// var lastBodyY = snake.body[snake.body.length - 1].y;
-			snake.move(food);
+			snake.move(food, map);
 			snake.render(map);
 
 			// 当蛇头移动到游戏区边界时，游戏结束
@@ -61,24 +58,9 @@
 				alert("Game Over!");
 				clearInterval(snakeRunTimeId);
 			}
-
-			// // 当蛇头的位置与食物的位置一致时，
-			// if (x === food.x && y === food.y) {
-			// 	// 吃掉食物，食物消失，再重新生成一个食物
-			// 	food.render(map);
-
-			// 	// 蛇身增加一节
-			// 	bodyLength = snake.body.length;
-			// 	snake.body[bodyLength] = {
-			// 		x: lastBodyX,
-			// 		y: lastBodyY,
-			// 		color: 'blue'
-			// 	};
-			// }
 			
 		}, 150);	
 	}
 
 	window.Game = Game;
 })();
-
