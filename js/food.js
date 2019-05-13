@@ -1,5 +1,5 @@
 // 自调用函数
-(function () {
+;(function () {
 	var position = 'absolute';
 	var foodElements = [];	// 用于存储所有食物元素
 	// 食物构造函数
@@ -49,11 +49,4 @@
 
 	// 把Food构造函数暴露给外部
 	window.Food = Food;
-})();
-
-// 测试代码
-// var map = document.getElementById('view');
-// var food = new Food();
-// food.render(map);
-// food.render(map);
-// food.render(map);
+})()

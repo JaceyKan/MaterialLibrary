@@ -1,4 +1,4 @@
-(function () {
+;(function () {
 	var Tools = {
 		getRandom: function (min, max) {
 			// 随机生成min~max之间的随机整数，包含min、max
@@ -7,4 +7,4 @@
 	}
 
 	window.Tools = Tools;
-})();
+})()

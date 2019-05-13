@@ -1,4 +1,4 @@
-(function () {
+;(function () {
 	// 游戏的逻辑
 	function Game(map) {
 		this.map = map;
@@ -63,4 +63,4 @@
 	}
 
 	window.Game = Game;
-})();
+})()

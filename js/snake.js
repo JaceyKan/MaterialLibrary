@@ -1,4 +1,4 @@
-(function () {
+;(function () {
 	var position = 'absolute';
 	var snake;
 	var snakeNodes = [];
@@ -94,14 +94,4 @@
 	}
 	
 	window.Snake = Snake;
-})();
-
-// 测试snake
-// var map = document.getElementById('view');
-// var snake = new Snake();
-
-// snake.move();
-// snake.move();
-// snake.move();
-// snake.render(map);
-// snake.run();
+})()
