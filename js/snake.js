@@ -36,7 +36,7 @@
 	}
 
 	// 让蛇动一步
-	Snake.prototype.move = function () {
+	Snake.prototype.move = function (food) {
 		// 蛇的身体移动一步
 		// 每个蛇节移动到的位置是上一个蛇节的位置
 		for (var i = this.body.length - 1; i > 0; i--) {
@@ -61,6 +61,24 @@
 			case 'left':
 				head.x--;
 				break;
+		}
+
+		// 当蛇头的位置与食物的位置一致时
+		var head = this.body[0];
+		var headX = head.x * this.w;
+		var headY = head.y * this.h;
+		if (headX === food.x && headY === food.y) {
+			// 吃掉食物，食物消失，再重新生成一个食物
+			food.render(map);
+
+			// 蛇身增加一节
+			var length = this.body.length;
+			var last = this.body[length - 1]
+			this.body[length] = {
+				x: last.x,
+				y: last.y,
+				color: last.color
+			};
 		}
 	}
 
