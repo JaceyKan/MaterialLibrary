@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>垂直居中对齐</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="20181018test.css">
+	</head>
+	<body>
+		<h2>方案1：absolute + 负margin</h2>
+		<p>兼容性好，宽高固定</p>
+		<div class="box" id="box1">
+			<div class="subBox" id="subBox1">
+				absolute + 负margin
+			</div>
+		</div>
+		<h2>方案3： absolute + margin auto</h2>
+		<p>兼容性好，宽高不限</p>
+		<div class="box" id="box3">
+			<div class="subBox" id="subBox3">
+				absolute + margin auto
+			</div>
+		</div>
+		<h2>方案2： css-table</h2>
+		<p>兼容性好，宽高不限</p>
+		<div class="box" id="box2">
+			<div class="subBox" id="subBox2">
+				CSS-table
+			</div>
+		</div>
+		<h2>方案4： flex</h2>
+		<p>宽高不限，
+		PC端：ie10+, chrome4+, firefox2+，
+		移动端兼容
+		</p>
+		<div class="box" id="box4">
+			<div class="subBox" id="subBox4">
+				flex
+			</div>
+		</div>
+
+	</body>
+</html>

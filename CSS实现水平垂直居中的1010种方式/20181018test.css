@@ -1,0 +1,60 @@
+.box {
+	width: 300px;
+	height: 200px;
+	border: 1px solid blue;
+}
+
+.subBox {
+	width: 100px;
+	height: 150px;
+	background: skyblue;
+}
+
+/*方案1*/
+#box1 {
+	position: relative;
+}
+#subBox1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -75px -50px;
+}
+
+/*方案2*/
+#box2{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+#subBox2 {
+	display: inline-block;
+}
+
+/*方案3*/
+#box3 {
+	position: relative;
+}
+#subBox3 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+/*方案4*/
+#box4 {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+}
+.red {
+    color: red
+}
+
+.blue {
+    color: blue
+}

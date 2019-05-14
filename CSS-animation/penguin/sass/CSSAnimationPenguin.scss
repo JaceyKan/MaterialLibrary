@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+$penguin-skin: #000;
+$face-color: #fff;
+$penguin-beak: orange;
+$penguin-cheek: pink;
+$body-background: #C6FAF1;
+$penguin-size: 400px;
+
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin border-radius-fourValues($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}
+
+@mixin transform-rotate($value) {
+  tranform: rotate($value);
+  -ms-transform: rotate($value);
+  -moz-transform: rotate($value);
+  -webkit-transform: rotate($value);
+  -o-transform: rotate($value);
+}
+
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin animation($value, $duration, $count){
+  animation: $value $duration $count;
+  -webkit-animation: $value $duration $count;
+  -o-animation: $value $duration $count;
+}
+
+body {
+  background: $body-background;
+  font-size: medium;
+}
+
+#penguin {
+  width: $penguin-size;
+  height: $penguin-size;
+  margin: auto;
+
+  #penguinHead {
+    width: 45%;
+    height: 40%;
+    background: $penguin-skin;
+    @include border-radius(50%);
+    margin: auto;
+    position: relative;
+
+    .face {
+      width: 65%;
+      height: 75%;
+      @include border-radius(50%);
+      background: $face-color;
+      position: absolute;
+      top: 15%;
+      z-index:10;
+    }
+    #leftFace {
+      left: 3%;
+    }
+    #rightFace {
+      right: 3%;
+    }
+
+    .eye {
+      @include width-height(15%, 15%);
+      background: #000;
+      @include border-radius(50%);
+      position: absolute;
+      top: 40%;
+      z-index: 11;
+      .eyeBall {
+        @include width-height(120%, 100%);
+        position: relative;
+        top: 30%;
+        left: -10%;
+        background: $face-color;
+        @include border-radius(50%);
+      }
+    }
+    #leftEye {
+      left: 25%;
+    }
+    #rightEye {
+      right: 25%;
+    }
+
+    #topBeak {
+      @include width-height(20%, 10%);
+      @include border-radius(50%);
+      background: $penguin-beak;
+      position: absolute;
+      z-index: 11;
+      bottom: 30%;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    #bottomBeak {
+      @include width-height(80%, 70%);
+      @include border-radius(50%);
+      background: $penguin-beak;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 55%;
+    }
+
+    .cheek {
+      @include width-height(14%, 8%);
+      @include border-radius(50%);
+      background: $penguin-cheek;
+      position: absolute;
+      bottom: 28%;
+      z-index: 11;
+    }
+    #leftCheek {
+      left: 15%;
+    }
+    #rightCheek {
+      right: 15%;
+    }
+
+  }
+
+  #penguinBody {
+    width: 53%;
+    height: 50%;
+    background: $penguin-skin;
+    @include border-radius(50%);
+    margin: auto;
+    position: relative;
+    top: -12%;
+
+    #penguinBelly {
+      width: 90%;
+      height: 90%;
+      @include border-radius(50%);
+      margin: auto;
+      position: relative;
+      top: 1%;
+      background-color: $face-color;
+    }
+
+    .hand {
+      @include width-height(20%, 55%);
+      background: $penguin-skin;
+      position: absolute;
+      top: 0;
+      z-index: -11;
+    }
+
+    #leftHand {
+      left: 0%;
+      top: -19%;
+      @include border-radius-fourValues(70%,30%,90%,20%);
+      @include transform-rotate(110deg);
+      @include animation(leftHandShake, 2s, infinite);
+    }
+
+    @mixin leftHandShake {
+      0% {
+        @include transform-rotate(110deg);
+      }
+      20% {
+        @include transform-rotate(130deg);
+      }
+      40% {
+        @include transform-rotate(110deg);
+      }
+      60% {
+        @include transform-rotate(130deg);
+      }
+      80% {
+        @include transform-rotate(110deg);
+      }
+    }
+    @keyframes leftHandShake {
+      @include leftHandShake;
+    }
+    @-webkit-keyframes leftHandShake {
+      @include leftHandShake;
+    }
+
+
+    #rightHand {
+      right: -2%;
+      @include border-radius-fourValues(30%,70%,20%,90%);
+      @include transform-rotate(-40deg);
+    }
+
+    .feet {
+      @include width-height(20%, 10%);
+      background: $penguin-beak;
+      position: absolute;
+      bottom: -5%;
+      z-index: -11;
+    }
+    #leftFeet {
+      @include border-radius-fourValues(60%, 20%, 70%, 30%);
+      left: 25%;
+    }
+
+    #rightFeet {
+      @include border-radius-fourValues(20%, 60%, 30%, 70%);
+      right: 25%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  $penguin-size: 800px;
+  #penguin {
+    @include width-height($penguin-size, $penguin-size);
+  }
+}

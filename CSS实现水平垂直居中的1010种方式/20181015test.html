@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>水平垂直居中</title>
+		<style>
+			/*公共代码*/
+			.box {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			.subBox {
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+
+			/*方案1*/
+			#subBox1 {
+				margin: 50px auto;
+			}
+
+			/*方案2——ablsolute + 负margin*/
+			#box2 {
+				position: relative;
+			}
+			#subBox2 {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -50px;
+				margin-top: -50px;
+			}
+
+			/*方案3——absolute + margin auto*/
+			#box3 {
+				position: relative;
+			}
+			#subBox3 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+
+			/*方案4——absolute + calc*/
+			#box4 {
+				position: relative;
+			}
+			#subBox4 {
+				position: absolute;
+				top: calc(50% - 50px);  /*运算符必须前后都留一个空格，不然浏览器识别不了*/
+				top: -webkit-calc(50% - 50px);
+				top: -moz-calc(50% - 50px);
+
+				left: calc(50% - 50px);
+				left: -webkit-calc(50% - 50px);
+				left: -moz-calc(50% - 50px);
+			}
+
+			/*方案5——absolute + transform*/
+			#box5 {
+				position: relative;
+			}
+			#subBox5 {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+
+			/*方案6——lineheight*/
+			#box6 {
+				line-height: 200px;
+				text-align: center;
+			}
+			#subBox6 {
+				display: inline-block;  /*不独占一行的块级元素*/
+				vertical-align: middle;
+				line-height: initial;  /*line-height有继承性，没设置前为父元素的值，设置回初始值*/
+				text-align: left;  /*修正文字*/
+			}
+
+			/*方案7——css-table*/
+			#box7 {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			#subBox7 {
+				display: inline-block;
+				text-align: left;
+			}
+
+			/*方案8——table*/
+			#box8 {
+				text-align: center;
+			}
+			#subBox8 {
+				display: inline-block;
+				text-align: left;
+			}
+
+			/*方案9——flex*/
+			#box9 {
+				display: flex;
+				display: -webkit-flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			/*方案10——grid*/
+			#box10 {
+				display: grid;
+			}
+			#subBox10 {
+				align-self: center;
+				justify-self: center;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h2>总结：</h2>
+		<ul>
+			<li>PC端有兼容性要求，宽高固定，推荐absolute + 负margin</li>
+			<li>PC端有兼容要求，宽高不固定，推荐css-table</li>
+			<li>PC端无兼容性要求，推荐flex</li>
+			<li>移动端推荐使用flex</li>
+		</ul>
+		<div class="box" id="box1">
+			<div class="subBox" id="subBox1">
+				方案1 margin
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box2">
+			<div class="subBox" id="subBox2">
+				方案2——ablsolute + 负margin
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box3">
+			<div class="subBox" id="subBox3">
+				方案3——absolute + margin auto
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box4">
+			<div class="subBox" id="subBox4">
+				方案4——absolute + calc
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box5">
+			<div class="subBox" id="subBox5">
+				方案5——absolute + transform
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box6">
+			<div class="subBox" id="subBox6">
+				方案6——lineheight
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box7">
+			<div class="subBox" id="subBox7">
+				方案7——css-table
+			</div>
+		</div>
+		<hr>
+		<table>
+			<tbody>
+				<tr>
+					<td class="box" id="box8">
+						<div class="subBox" id="subBox8">
+							方案8——table
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<div class="box" id="box9">
+			<div class="subBox" id="subBox9">
+				方案9——flex
+			</div>
+		</div>
+		<hr>
+		<div class="box" id="box10">
+			<div class="subBox" id="subBox10">
+				方案10——gird
+			</div>
+		</div>
+
+	</body>
+</html>
