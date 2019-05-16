@@ -27,7 +27,6 @@
 		// 封装验证代码
 		function testString(regularExPression, tip) {
 			return function (){
-				console.log(regularExPression);
 				var span = this.nextElementSibling;
 				if(!regularExPression.test(this.value)) {
 					// 不匹配
