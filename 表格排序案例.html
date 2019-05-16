@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格排序案例</title>
+	<style>
+		.table {
+			border-collapse: collapse;
+			text-align: center;
+			width: 500px;
+			margin: 20px;
+		}
+		.table tbody tr:nth-child(2n+1) {
+			background-color: skyblue;
+		}
+		.table th,
+		.table td {
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<table id="myTable" class="table" border="1"></table>
+
+	<script>
+		var tableData = [
+			{name: '张三', age: 16, score: 87},
+			{name: '李四', age: 32, score: 98},
+			{name: '王五', age: 21, score: 70},
+			{name: '赵六', age: 22, score: 95},
+			{name: '王二', age: 19, score: 89},
+		];
+
+		function Table(id, tableData) {
+			this.table = document.getElementById(id);
+			this.tableData = tableData;
+		}
+		// 表格初始化
+		Table.prototype.init = function () {
+			this.initThead();
+			this.initTbody();
+			this.addTableSort();
+		}
+
+		// 初始化表头thead
+		Table.prototype.initThead = function () {
+			var thead = document.createElement('thead');
+			this.table.appendChild(thead);
+			
+			thead.innerHTML = '<tr>'
+							+ '<th type="name" flag="-1">姓名</th>'
+							+ '<th type="age" flag="-1">年龄</th>'
+							+ '<th type="score" flag="-1">分数</th>'
+							+ '</tr>';
+		}
+
+		// 初始化表格内容tbody
+		Table.prototype.initTbody = function () {
+			var tbody = document.createElement('tbody');
+			this.table.appendChild(tbody);
+
+			for (var i = 0; i < this.tableData.length; i++) {
+				// 添加行
+				var tr = document.createElement('tr');
+				tbody.appendChild(tr);
+
+				var trData = this.tableData[i];	// 获取每行的数据
+				var trStr = '';	// 每行的html
+
+				// 添加每行中每列的数据
+				for (var key in trData) {
+					trStr += '<td>' + trData[key] + '</td>';
+				}
+				tr.innerHTML = trStr;
+			}
+		}
+
+		// 点击表头排序
+		Table.prototype.addTableSort = function () {
+			var thead = this.table.children[0];
+
+			// 获取thead中所有th元素
+			var ths = thead.children[0].children;
+
+			var that = this;
+			for (var i = 0; i < ths.length; i++) {
+				// 为每个th元素添加点击事件
+				var th = ths[i];
+				
+				th.onclick = function () {
+					console.dir(this);
+					// 注意：通过getAttribute()获得的值是string类型
+					var type = this.getAttribute('type');
+					var flag = this.getAttribute('flag') == 1 ? -1 : 1;
+					this.setAttribute('flag', flag);
+					that.tableData.sort(function (o1, o2) {
+						if(flag === 1) {
+							return o1[type] - o2[type];
+						} else {
+							return o2[type] - o1[type];
+						}
+						
+					});
+					// console.log(that.tableData);
+					that.table.removeChild(that.table.children[1]);
+					that.initTbody();
+				}
+			}
+		}
+
+		// 运行初始化表格
+		var table = new Table('myTable', tableData);
+		table.init();
+	</script>
+</body>
+</html>

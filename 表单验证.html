@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+</head>
+<body>
+	QQ号：<input type="text" id="qq"><span></span><br>
+	邮 箱：<input type="text" id="email"><span></span><br>
+
+	<script>
+		var qqInput = document.getElementById('qq');
+		var email = document.getElementById('email');
+		// qqInput.onchange = function () {
+		// 	var regularExPression = /^\d{5,12}$/;
+		// 	var span = this.nextElementSibling;
+		// 	if(!regularExPression.test(this.value)) {
+		// 		// 不匹配
+		// 		span.innerText = "请输入正确的QQ号";
+		// 		span.style.color = 'red';
+		// 	} else {
+		// 		// 匹配
+		// 		span.innerText = '';
+		// 	}
+		// }
+
+		// 封装验证代码
+		function testString(regularExPression, tip) {
+			return function (){
+				console.log(regularExPression);
+				var span = this.nextElementSibling;
+				if(!regularExPression.test(this.value)) {
+					// 不匹配
+					span.innerText = tip;
+					span.style.color = 'red';
+				} else {
+					// 匹配
+					span.innerText = '';
+				}
+			}
+		}
+
+		qqInput.onkeyup = testString(/^\d{5,12}$/, '请输入正确的QQ号(5~12位数字)');
+		email.onkeyup = testString(/^\w+@\w+(\.\w+){1,2}$/, '请输入正确的邮箱(xxx@xxx.xxx 或 xxx@xxx.xxx.xxx)');
+	</script>
+</body>
+</html>
