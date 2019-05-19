@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>好友展示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#classmates{
+			border: 1px solid hotpink;
+			width: 300px;
+			height: 500px;
+			margin: 50px;
+			text-align: center;
+			font-weight: 700;
+		}
+		#classmates>li {
+			background-color: hotpink;
+			overflow: hidden;
+		}
+		#classmates>li>ul {
+			display: none;
+		}
+		#classmates>li>ul>li {
+			background-color: yellow;
+			margin: 0.5em 0;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			$('#classmates>li').click(function () {
+				$('#classmates').find('ul').hide();
+				$(this).find('ul').show();
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul id="classmates">
+		<li>幼儿园同学
+			<ul>
+				<li>小花</li>
+				<li>小明</li>
+				<li>鼻涕虫</li>
+			</ul>
+		</li>
+		<li>小学同学
+			<ul>
+				<li>比尔盖茨</li>
+				<li>菲尔普斯</li>
+				<li>川普</li>
+			</ul>
+		</li>
+		<li>初中同学
+			<ul>
+				<li>奥巴马</li>
+				<li>奥黛丽赫本</li>
+				<li>阿黛尔</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

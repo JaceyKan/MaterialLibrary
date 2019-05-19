@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>产品切换</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		/*产品切换 start*/
+		#box {
+			width: 700px;
+			height: 500px;
+			border: 1px solid #555;
+			margin: 50px auto;
+			text-align: center;
+		}
+		/*导航样式*/
+		.nav {
+			list-style: none;
+			overflow: hidden;
+		}
+		#box ul li {
+			float: left;
+			width: 100px;
+			height: 2em;
+			line-height: 2em;
+			border-right: 1px solid #555;
+			box-sizing: border-box;
+		}
+		/*当前项样式*/
+		#box .nav .current {
+			border-top: 3px solid red;
+		}
+		/*产品样式*/
+		#box .products {
+			background-color: pink;
+			overflow: hidden;
+			height: 460px;
+		}
+		#box .products img {
+			width: 100%;
+			vertical-align: top;
+		}
+		#box .products .main {
+			display: none;
+		}
+		#box .products .currentP {
+			display: block;
+		}
+		/*产品切换 end*/
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			// 为每个.nav li添加鼠标进入事件
+			$('#box .nav>li').mouseenter(function () {
+				// 移除其他li的‘current’类，
+				// 为当前li添加'current'类
+				$(this).siblings().removeClass('current');
+				$(this).addClass('current');
+
+				// 显示当前li对应index的div.main
+				var index = $(this).index();
+				$('.products .main').removeClass('currentP');
+				$('.products .main:eq('+index+')').addClass('currentP');
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- 产品切换 -->
+	<div id="box">
+		<!-- 导航 -->
+		<ul class="nav">
+			<li class="current">裙装</li>
+			<li>裤装</li>
+			<li>衬衫</li>
+		</ul>
+		<!-- 产品 -->
+		<div class="products">
+			<div class="main currentP"><img src="img/1 (7).jpg" alt=""></div>
+			<div class="main"><img src="img/1 (2).jpg" alt=""></div>
+			<div class="main"><img src="img/1 (4).jpg" alt=""></div>
+		</div>
+	</div>
+</body>
+</html>
