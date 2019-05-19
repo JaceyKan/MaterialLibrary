@@ -30,7 +30,10 @@
 		#commodity #left li,
 		#commodity #right li {
 			border-bottom: 1px solid pink;
-			/*border-right: 1px solid pink;*/
+		}
+		#commodity #left li:hover,
+		#commodity #right li:hover {
+			background-color: hotpink;
 		}
 		#commodity #center {
 			width: 80%;
@@ -57,10 +60,6 @@
 		$(function () {
 			// 左侧li鼠标进入事件
 			$('#left>li').mouseenter(function () {
-				// 进入li标签，改变当前li背景色
-				$('#left>li, #right>li').css('backgroundColor', '');
-				$(this).css('backgroundColor', 'hotpink');
-
 				// 显示与当前li的index对应的图片
 				var index = $(this).index();
 				$('#center>li').hide();
@@ -69,9 +68,6 @@
 
 			// 右侧li鼠标进入事件
 			$('#right>li').mouseenter(function () {
-				$('#left>li, #right>li').css('backgroundColor', '');
-				$(this).css('backgroundColor', 'hotpink');
-
 				var index = $(this).index();
 				$('#center>li').hide();
 				$('#center>li:eq('+(4 + index)+')').show();
