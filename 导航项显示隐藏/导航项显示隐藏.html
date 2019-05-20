@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航项显示影藏</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color: #555;
+		}
+		/*导航栏 start*/
+		#nav {
+			width: 600px;
+			height: 30px;
+			border: 1px solid #555;
+			text-align: center;
+			margin: 50px auto;
+		}
+		#nav>li {
+			float: left;
+			line-height: 30px;
+			padding: 0 20px;
+		}
+		#nav>li:hover {
+			background-color: hotpink;
+		}
+		#nav>li>ul {
+			display: none;
+		}
+		#nav>li>ul>li:hover a {
+			color: rgba(255, 255, 255, 0.9);
+		}
+		/*导航栏 end*/
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			$('#nav>li').mouseenter(function () {
+				// 在动画前加上stop()，用来停止之前动画，
+				// 用来解决来回切换多次时，动画闪动多次
+				$(this).children().stop().slideDown();
+			}).mouseleave(function () {
+				$(this).children().stop().slideUp();
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul id="nav">
+		<li>财经新闻
+			<ul>
+				<li><a href="#">国际财经</a></li>
+				<li><a href="#">国内财经</a></li>
+				<li><a href="#">地方财经</a></li>
+			</ul>
+		</li>
+		<li>体育新闻
+			<ul>
+				<li><a href="#">世锦赛</a></li>
+				<li><a href="#">锦标赛</a></li>
+			</ul>
+		</li>
+		<li>民生新闻
+			<ul>
+				<li><a href="#">都市报道</a></li>
+				<li><a href="#">农业致富</a></li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

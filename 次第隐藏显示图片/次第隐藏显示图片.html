@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏显示图片</title>
+	<style>
+		div img {
+			width: 200px;
+			height: 250px;
+			border: 1px solid hotpink;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			// 隐藏图片
+			$('#hideImages').click(function () {
+				$('div>img').last('img').hide(800, function () {
+					// 隐藏图片后做的事
+					// arguments.callee 为当前函数自身
+					// 相当于递归
+					$(this).prev().hide(800, arguments.callee);
+				});
+			});
+			// 显示图片
+			$('#showImages').click(function () {
+				$('div>img').first('img').show(800, function () {
+					$(this).next().show(800, arguments.callee);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="隐藏图片" id="hideImages">
+	<input type="button" value="显示图片" id="showImages">
+	<div>
+		<img src="img/1 (1).jpg">
+		<img src="img/1 (2).jpg">
+		<img src="img/1 (3).jpg">
+		<img src="img/1 (4).jpg">
+	</div>
+</body>
+</html>
