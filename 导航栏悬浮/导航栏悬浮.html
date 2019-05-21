@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏悬浮</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			height: 150px;
+			background-color: yellow;
+		}
+		nav {
+			height: 100px;
+			background-color: hotpink;
+			width: 100%;
+		}
+		#main {
+			height: 1500px;
+			background: url('img/1.jpg') skyblue no-repeat;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			$(document).scroll(function () {
+				if ($(document).scrollTop() >= $('header').height()) {
+					$('nav').css({'position': 'fixed', 'top': 0});
+					$('#main').css('marginTop',  $('nav').height()+'px');
+				} else {
+					$('nav').css({'position': 'static'});
+					$('#main').css('marginTop', 0);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		头部
+	</header>
+	<nav>
+		导航
+	</nav>
+	<div id="main">
+		主体
+	</div>
+</body>
+</html>

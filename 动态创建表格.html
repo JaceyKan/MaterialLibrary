@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建表格</title>
+	<style>
+		#myTab {
+			border-collapse: collapse;
+			background-color: skyblue;
+			width: 400px;
+			margin: 50px auto;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		var tableDate = [
+			{name: '谷歌', href: 'http://google.com', title: '全球最大的搜索引擎公司'},
+			{name: 'GitHub', href: 'http://github.com', title: '程序员交友网站'},
+			{name: '淘宝', href: 'http://taobao.com', title: '买买买的世界'}
+		];
+		$(function () {
+			// $('#createTab').click(function () {
+			// 	for (var i = 0; i < tableDate.length; i++) {
+			// 		var obj = tableDate[i];
+			// 		var trObj = $('<tr><td><a href="'+obj.href+'">'+obj.name+'</a></td><td>'+obj.title+'</td></tr>');
+			// 		trObj.appendTo($('#tb'));
+			// 	}
+			// });
+			var arr = [];
+			$('#createTab').click(function () {
+				for (var i = 0; i < tableDate.length; i++) {
+					var obj = tableDate[i];
+					var trObj = $('<tr><td><a href="'+obj.href+'">'+obj.name+'</a></td><td>'+obj.title+'</td></tr>');
+					arr.push(trObj);
+				}
+				$('#tb').html(arr);
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="生成表格" id="createTab">
+	<table id="myTab" border="1">
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>类型</th>
+			</tr>
+		</thead>
+		<tbody id="tb">
+		</tbody>
+	</table>
+</body>
+</html>

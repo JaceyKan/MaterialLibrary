@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表各项全选全不选</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		table {
+			width: 500px;
+			margin: 50px auto;
+			text-align: center;
+			border-collapse: collapse;
+			line-height: 2em;
+		}
+		td, th {
+			border: 1px solid #000;
+		}
+		th {
+			background-color: skyblue;
+		}
+		tbody tr {
+			background-color: #eee;
+		}
+		tbody tr:hover {
+			background-color: #fff;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			// 为thead中的复选框设置点击事件
+			$('#all').click(function () {
+				if ($(this).prop('checked')) {
+					// 全选
+					$('.sel').prop('checked', true);
+				} else {
+					// 全不选
+					$('.sel').prop('checked', false);
+				}
+			});
+
+			// 为tbody中的复选框设置点击事件
+			// $('.sel').click(function () {
+			// 	if ($(this).prop('checked')) {
+			// 		// 选中
+			// 		for(var i = 0; i < $('.sel').length; i++) {
+			// 			var obj = $('.sel')[i];
+			// 			if (!$(obj).prop('checked')) {
+			// 				return;
+			// 			}
+			// 		}
+			// 		$('#all').prop('checked', true);
+			// 	} else {
+			// 		// 未选中
+			// 		$('#all').prop('checked', false);
+			// 	}
+			// });
+
+			// 方法2
+			var tbodyCheckBoxLength = $('tbody :checkbox').length;	// tbody中的复选框数量
+			$('tbody :checkbox').click(function () {
+				var tbodyCheckedLength = $('tbody :checked').length;	// tbody中选中的复选框数
+				if (tbodyCheckedLength === tbodyCheckBoxLength) {
+					// 全选
+					$('#all').prop('checked', true);
+				} else {
+					$('#all').prop('checked', false);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="all"></th>
+				<th>课程名称</th>
+				<th>所属院系</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" class="sel"></td>
+				<td>C语言面向对象程序设计</td>
+				<td>计算机系</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="sel"></td>
+				<td>数据库开发</td>
+				<td>计算机系</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="sel"></td>
+				<td>高等数学</td>
+				<td>数理系</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="sel"></td>
+				<td>英语2</td>
+				<td>外语系</td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>
