@@ -114,17 +114,23 @@
 			});
 
 			// 删除课程
+			// 推荐用on，可为动态添加的元素注册点击事件
 			$('#myTab tbody').on('click', '.get', function () {
 				$(this).parent().parent().remove();
 				return false;
 			});
-			// 错误方法1：新添加的元素没有注册点击事件，应去掉父元素中的td
+			// 错误方法1：动态新添加的元素没有注册点击事件，应去掉父元素中的td
 			// $('#myTab tbody td').on('click', '.get', function () {
 			// 	$(this).parent().parent().remove();
 			// 	return false;
 			// });
-			// 错误方法2：新添加的元素没有注册点击事件，推荐用on为下属的元素绑定事件
+			// 错误方法2：动态新添加的元素没有注册点击事件，推荐用on为下属的元素绑定事件
 			// $('#myTab tbody .get').click(function () {
+			// 	$(this).parent().parent().remove();
+			// 	return false;
+			// });
+			// 错误方法3：动态新添加的元素没有注册点击事件
+			// $('#myTab tbody .get').bind('click', function () {
 			// 	$(this).parent().parent().remove();
 			// 	return false;
 			// });

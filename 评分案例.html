@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评分案例</title>
+	<style>
+		#score span {
+			width: 30px;
+			height: 30px;
+			border: 1px solid #000;
+			display: inline-block;
+		}
+	</style>
+	<script src="jquery/jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			// $('#score span').mouseover(function () {
+			// 	$(this).css('backgroundColor', 'yellow').prevAll().css('backgroundColor', 'yellow');
+			// }).mouseout(function () {
+			// 	$('#score span').css('backgroundColor', '');
+			// }).click(function () {
+			// 	$(this).css('backgroundColor', 'yellow').prevAll().css('backgroundColor', 'yellow');
+			// 	$('#score span').off('click mouseover mouseout');
+			// });
+			
+			$('#score span').mouseover(function () {
+				$(this).css('backgroundColor', 'yellow').prevAll().css('backgroundColor', 'yellow').end().nextAll().css('backgroundColor', '');
+			}).mouseout(function () {
+				$('#score span').css('backgroundColor', '');
+
+				// 鼠标离开时，为有index属性的span，及其前面的span添加背景色，其后面的span去除背景色。
+				$('#score span[index=1]').css('backgroundColor', 'yellow').prevAll().css('backgroundColor', 'yellow').end().nextAll().css('backgroundColor', '');
+			}).click(function () {
+				// 为点击的span添加index属性，其余的span去除index属性
+				$(this).attr('index', 1).siblings().removeAttr('index');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="score">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>	
+	</div>
+</body>
+</html>

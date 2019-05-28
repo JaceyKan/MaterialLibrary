@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查询图书</title>
+	<style>
+		#container {
+			width: 500px;
+			min-height: 300px;
+			background-color: hotpink;
+			margin: 10px auto;
+			text-align: center;
+			padding: 10px;
+		}
+	</style>
+	<script src="ajax.js"></script>
+	<script>
+		window.onload = function () {
+			var checkBtn = document.getElementById('checkBtn');
+			var checkInfo = document.getElementById('checkInfo');
+			checkBtn.onclick = function () {
+				var bookCode = document.getElementById('bookCode').value;
+				ajax('check.php', 'post', 'bookCode='+bookCode, 'json', function (data) {
+					if (data == 0) {
+						// 不存在
+						checkInfo.innerHTML = '您所查找的图书不存在';
+					} else {
+						// 存在
+						var tag = '<ul><li>书名：'+data.name+'</li><li>作者：'+data.author+'</li><li>简述：'+data.desc+'</li></ul>';
+						checkInfo.innerHTML = tag;
+					}
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		图书编码：<input type="text" id="bookCode"><br>
+		<input type="button" value="查询图书" id="checkBtn"><br>
+		<div id="checkInfo">
+		</div>
+	</div>
+</body>
+</html>
