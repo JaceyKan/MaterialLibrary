@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度智能所搜提示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.container {
+			width: 400px;
+			min-height: 300px;
+			margin: 50px auto;
+			background-color: skyblue;
+			text-align: center;
+			padding: 50px 0;
+		}
+		.container #searchWord {
+			line-height: 30px;
+			font-size: 20px;
+			width: 70%;
+		}
+		#searchPrompt ul {
+			width: 70%;
+			background-color: #eee;
+			margin: 0 auto;
+			text-align: left;
+			cursor: pointer;
+		}
+		#searchPrompt li:hover{
+			background-color: hotpink;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function () {
+			$('#searchWord').keyup(function () {
+				var sw = $(this).val();
+				$.ajax({
+					url: 'https://www.baidu.com/sugrec',
+					type: 'get',
+					dataType: 'jsonp',
+					data: {
+						wd: sw,
+						prod: 'pc',
+					},
+					jsonp: 'cb',
+					success: function (data) {
+						var data = data.g;	// 获取建议数据
+
+						// 如果有建议数据，展示
+						if (data) {
+							var tag = '<ul>';
+							for(var i = 0; i < data.length; i++) {
+								tag += '<li>'+data[i].q+'</li>';
+							}
+							tag += '</ul>';
+
+							$('#searchPrompt').html(tag);
+						} else {
+							// 没有建议数据，置空
+							$('#searchPrompt').html('');
+						}
+					}
+				});
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<input type="text" id="searchWord" placeholder="输入php试试">
+		<div id="searchPrompt"></div>
+	</div>
+</body>
+</html>
