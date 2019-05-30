@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省市县三级联动</title>
+	<style>
+		.container {
+			width: 500px;
+			height: 400px;
+			margin: 50px auto;
+			background-color: skyblue;
+			text-align: center;
+			padding: 20px;
+		}
+		.container select {
+			height: 30px;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 通用函数
+		function queryData (data, callback) {
+			$.ajax({
+				url: 'select.php',
+				type: 'get',
+				dataType: 'json',
+				data: data,
+				success: function (data) {
+					callback(data);
+				},
+			});
+		}
+
+		$(function () {
+			// 初始化省数据
+			queryData({flag: 1}, function (data) {
+				var tag = ''
+				$.each(data, function (i, e) {
+					tag += '<option value="'+e.id+'">'+e.province+'</option>';
+				});
+				$('#province').append(tag);
+			});
+
+			// 选择省级数据时联动市级数据
+			$('#province').change(function () {
+				// 省级变动时，先清空市级和县级数据
+				$('#city').html('<option value="">请选择市...</option>');
+				$('#county').html('<option value="">请选择县...</option>');
+				var pId = $(this).val();
+				queryData({flag: 2, pId: pId}, function (data) {
+					var tag = ''
+					$.each(data, function (i, e) {
+						tag += '<option value="'+e.id+'">'+e.city+'</option>';
+					});
+					$('#city').append(tag);
+				});
+			});
+
+			// 选择市级数据时联动县级数据
+			$('#city').change(function () {
+				$('#county').html('<option value="">请选择县...</option>');
+				var cId = $(this).val();
+				queryData({flag: 3, cId: cId}, function (data) {
+					var tag = ''
+					$.each(data, function (i, e) {
+						tag += '<option value="'+e.id+'">'+e.county+'</option>';
+					});
+					$('#county').append(tag);
+				});
+			});
+		})
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<select id="province">省：
+			<option>请选择省...</option>
+		</select>
+		<select id="city">市：
+			<option>请选择市...</option>
+		</select>
+		<select id="county">县：
+			<option>请选择县...</option>
+		</select>
+
+	</div>
+</body>
+</html>
