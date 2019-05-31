@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全国天气查询</title>
+	<!-- <link rel="stylesheet" href="common.css"> -->
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="weather.css">
+	<script src="jquery-1.12.2.js"></script>
+	<script src="template.js"></script>
+	<script src="weather.js"></script>
+	<!-- 天气数据模板 -->
+	<script type="text/html" id="weather">
+		<!-- 当前天气模块 start-->
+		<div class="box head">
+			<span class="left" id="city">{{city}}</span>
+			<span class="right">{{temp}}° {{weather}}</span><br>
+			<span class="left">空气{{aqi.quality}}</span>
+			<span class="right">空气质量：{{aqi.aqi}}</span>
+		</div>
+		<!-- 当前天气模块 end-->
+		<!-- 未来天气模块  start -->
+		<div class="box daily">
+			{{each daily as value i}}
+				<ul>
+					<li>
+						<span class="left">{{value.date}}</span>
+						<span class="right">{{value.week}}</span>
+					</li>
+					<li>
+						<span class="left">白天：</span>
+						<span class="right">{{value.day.weather}},
+					最高温度：{{value.day.temphigh}}</span><br>
+						<span class="right">风向:{{value.day.winddirect}},
+					风速：{{value.day.windpower}}</span>
+					</li>
+					<li>
+						<span class="left">夜晚：</span>
+						<span class="right">{{value.night.weather}},
+					最低温度：{{value.night.templow}}</span><br>
+						<span class="right">风向:{{value.night.winddirect}},
+					风速：{{value.night.windpower}}</span>
+					</li>
+				</ul>
+				{{if i !== daily.length - 1}}
+					<!-- 在除最后一个ul后加分割线 -->
+					<hr>
+				{{/if}}
+			{{/each}}
+		</div>
+		<!-- 未来天气模块  end -->
+	</script>
+</head>
+<body>
+	<!-- 说明模块 -->
+	<div class="desc">
+		<h2>天气查询工具说明：</h1>
+		<p>
+		输入城市名称，按回车键查询天气数据。<br>
+		本工具使用jsonp跨域获取数据，由<a href="https://www.jisuapi.com">极速数据</a>提供1000次免费数据支持。<br>
+		超出次数后，将无法再查询到实时天气信息，可使用 test.json 文件模拟天气数据。
+		</p>
+	</div>
+
+	<div class="container">
+		<input type="text" placeholder="请输入城市名称,按回车键查询" id="cityName">
+
+		<!-- 天气信息模块 -->
+		<div id="weatherInfo"></div>
+	</div>
+</body>
+</html>

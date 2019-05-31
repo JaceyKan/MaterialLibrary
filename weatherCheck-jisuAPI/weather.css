@@ -1,0 +1,61 @@
+
+.container {
+	width: 500px;
+	min-height: 500px;
+	background-color: #a3daff;
+	margin: 50px auto;
+	padding: 20px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+#cityName {
+	width: 60%;
+	height: 30px;
+	text-align: center;
+}
+
+/*天气信息 start*/
+#weatherInfo {
+	text-align: left;
+}
+
+#weatherInfo .box{
+	background-color: #03a6ff;
+	margin: 20px auto;
+	width: 80%;
+	padding: 10px;
+	overflow: hidden;
+}
+
+/*当前天气模块*/
+#weatherInfo #city {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+/*未来天气模块 start*/
+#weatherInfo .daily ul{
+	margin: 10px 0;
+	overflow: hidden;
+}
+
+#weatherInfo .daily hr {
+	border: 1px solid #0080ff;
+}
+
+#weatherInfo .daily li {
+	clear: both;
+}
+
+#weatherInfo .left {
+	float: left;
+	width: 40%;
+}
+
+#weatherInfo .right {
+	float: right;
+	width: 60%;
+}
+/*未来天气模块 end*/
+/*天气信息 start*/
