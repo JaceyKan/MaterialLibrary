@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气查询</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style-type: none;
+		}
+		.container {
+			width: 500px;
+			height: 400px;
+			background-color: hotpink;
+			text-align: center;
+			margin: 50px auto;
+			padding: 20px;
+		}
+		.container input {
+			height: 30px;
+		}
+		#weatherInfoDiv {
+			text-align: left;
+			/*background-color: yellow;*/
+			width: 300px;
+			margin: 10px auto;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script src="template.js"></script>
+	<script type="text/html" id="weatherInfo">
+		<ul>
+			<li>日期：{{date}}</li>
+			<li>天气：{{weather}}</li>
+			<li>当前时间：{{time}}</li>
+			<li>当前温度：{{temp}}</li>
+			<li>最高温度：{{h_tmp}}</li>
+			<li>最低温度：{{l_tmp}}</li>
+			<li>风向：{{WD}}</li>
+			<li>风速：{{WS}}</li>
+			<li>日出时间：{{sunrise}}</li>
+			<li>日出时间：{{sunset}}</li>
+			<li>经度：{{longitude}}</li>
+			<li>纬度：{{latitude}}</li>
+			<li>海拔：{{altitude}}</li>
+		</ul>
+	</script>
+	<script>
+		$(function () {
+			$('#weatherCheckBtn').click(function () {
+				var cityName = $('#cityName').val();
+				$.ajax({
+					url: 'citycode.php',
+					type: 'get',
+					dataType: 'json',
+					data: {cityName: cityName},
+					success: function (data) {
+						var cityCode = data.cityCode;
+						// console.log(cityCode);
+						$.ajax({
+							url: 'cityweather.php',
+							type: 'get',
+							dataType: 'json',
+							data: {cityCode: cityCode},
+							success: function (data) {
+								data = data.retData;
+								var tag = template('weatherInfo', data);
+								$('#weatherInfoDiv').html(tag);
+							}
+						});
+					},
+					error: function (e){
+						$('#weatherInfoDiv').html('<p>查询不到此城市的天气信息</p>');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		城市名称：<input type="text" placeholder="请输入城市名称" id="cityName">
+		<input type="button" value="查询天气" id="weatherCheckBtn">
+		<div id="weatherInfoDiv">
+			<p>后台采用php编写，模拟数据有：<br>
+			北京、上海、广州、深圳。</p>
+		</div>
+	</div>
+</body>
+</html>
