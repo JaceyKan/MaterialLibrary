@@ -5,6 +5,12 @@
  -->
 
 ### 目录
+
+* AJAX——需布置在服务器上进行预览
+  * 全国天气实时查询案例——[源码](weatherCheck-jisuAPI)
+  * 省市县数据三级联动——[源码](provinceCityCounty)
+  * 百度智能所搜提示——[源码](baiduSearchPrompt)
+
 * JS
 	* 导航项显示隐藏——[在线预览](https://jaceykan.github.io/MaterialLibrary/导航项显示隐藏/导航项显示隐藏.html)——[源码](导航项显示隐藏)
 	* 次第隐藏显示图片——[在线预览](https://jaceykan.github.io/MaterialLibrary/次第隐藏显示图片/次第隐藏显示图片.html)——[源码](次第隐藏显示图片)
